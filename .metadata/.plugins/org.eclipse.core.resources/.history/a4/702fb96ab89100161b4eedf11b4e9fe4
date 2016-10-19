@@ -1,0 +1,6 @@
+package pack.model;
+
+public class GogekDto {
+	private String gogek_no, gogek_name, sawon_name, sawon_jik, buser_name, buser_Tel;
+	
+}

@@ -1,0 +1,8 @@
+package pack.model;
+
+public class MyModel {
+	private String name;
+	String[] skills;
+	
+	
+}

@@ -1,0 +1,39 @@
+package pack.controller;
+
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.servlet.ModelAndView;
+
+@Component
+@Aspect
+public class RunAdvice {
+	
+	@Around("execution(public String buser())")
+	public Object trace(ProceedingJoinPoint joinPoint) throws Throwable{
+		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpServletRequest request = attr.getRequest();
+		
+		HttpSession session = request.getSession();
+		
+    	 String sawon_name = (String)session.getAttribute("sawon_name");
+         if(sawon_name == null || sawon_name.equals("")){
+        	ModelAndView modelAndView = new ModelAndView();
+        	Object log = "아이디 및 비밀번호를 확인 해주세요"; 
+ 			modelAndView.addObject("log", log);
+ 			modelAndView.setViewName("login");
+            return modelAndView;
+         }else{
+        	Object object = joinPoint.proceed();
+      		return object;
+         }
+	  
+	}
+}

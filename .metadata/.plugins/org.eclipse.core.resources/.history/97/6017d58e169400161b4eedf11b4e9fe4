@@ -1,0 +1,14 @@
+package pack.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import pack.model.SawonInter;
+
+@Controller
+public class LoginController {
+	@Autowired
+	private SawonInter inter;
+	
+	
+}

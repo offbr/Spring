@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+	<!-- scope = default singleton  -->
+	<bean id="mbean" class="pack.MessageImpl" scope="prototype" 
+	c:name2="반가워요" 
+	c:year="24"
+	c:myInfo-ref="my"
+	p:spec="파이썬"
+	p:inter-ref="outFileInterImpl"
+	> 
+		<!-- 생성자 주입 -->
+		<!-- 
+		<constructor-arg index="1">
+			<value>홍길동</value>
+		</constructor-arg>
+		<constructor-arg index="0">
+			<value>아버지를 아버지라 부르지...</value>
+		</constructor-arg>
+		 -->
+		 <constructor-arg index="0" type="java.lang.String" value="신기해" />
+		 <!-- 
+		 <constructor-arg index="1" type="java.lang.String" value="반가워요" />
+		 <constructor-arg index="2" type="int" value="16" />
+		 <constructor-arg index="3" type="other.MyInfo" ref="our"/>
+		  -->
+		  
+		  <!-- 셋터 주입 -->
+		  <!-- 
+		  <property name="spec">
+		  		<value>스프링</value>
+		  </property>
+		  <property name="inter">
+		  		<ref bean="outFileInterImpl"/>
+		  </property>
+		   -->
+	</bean>
+	
+	<bean id="myInfo" name="my, your, our" class="other.MyInfo" scope="singleton"/>
+	<bean id="outFileInterImpl" class="other.OutFileInterImpl">
+		<property name="filePath" value="c:/work/good.txt" />
+	</bean>
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

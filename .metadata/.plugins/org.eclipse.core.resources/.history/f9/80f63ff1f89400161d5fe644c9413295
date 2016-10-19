@@ -1,0 +1,51 @@
+package pack.model;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class MemberImpl implements MemberInter{
+	@Autowired
+	private JdbcTemplate template;
+	
+	@Override
+	public List<MemberDto> getList() {
+		String sql = "select * from mymember";
+		List<MemberDto> list = template.query(sql, new RowMapper<MemberDto>(){
+			@Override
+			public MemberDto mapRow(ResultSet arg0, int arg1) throws SQLException {
+				// TODO Auto-generated method stub
+				return null;
+			}
+		});
+		return null;
+	}
+	
+	@Override
+	public void insert(MemberDto dto) {
+		
+	}
+	
+	@Override
+	public void update(MemberDto dto) {
+		
+	}
+	
+	@Override
+	public void delete(String no) {
+		
+	}
+	
+	@Override
+	public MemberDto getData(String no) {
+		return null;
+	}
+	
+	
+}

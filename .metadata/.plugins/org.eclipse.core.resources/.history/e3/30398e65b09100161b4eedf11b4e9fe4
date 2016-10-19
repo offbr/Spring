@@ -1,0 +1,12 @@
+package pack.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import pack.model.DataInter;
+
+@Controller
+public class SangpumController {
+	@Autowired
+	private DataInter inter;
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;pack.resource&apos; to &apos;spring_mvc21_aop_login/src/main/java&apos;&#x0A;- Original project: &apos;spring_mvc15_mybatis_crud&apos;&#x0A;- Destination element: &apos;spring_mvc21_aop_login/src/main/java&apos;&#x0A;- Original element: &apos;spring_mvc15_mybatis_crud/src/main/java/pack.resource&apos;" description="Copy package" destination="=spring_mvc21_aop_login/src\/main\/java" element1="/src\/main\/java&lt;pack.resource" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1476669594466" version="1.0"/>
+</session>

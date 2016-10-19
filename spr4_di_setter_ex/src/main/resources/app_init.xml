@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="productProcess" class="pack.ProductProcess">
+		<property name="product" ref="productImpl"/>
+		<property name="name" value="치킨" />
+		<property name="su" value="5"/>
+		<property name="dan" value="100"/>
+	</bean>
+	
+	<bean id="productImpl" class="pack.ProductImpl">
+		<constructor-arg>
+			<ref bean="productCalc"/>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="productCalc" class="pack.ProductCalc"/>
+</beans>

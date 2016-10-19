@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+		<list key="ciManagementUrl">
+		</list>
+		<list key="ciManagementSystem">
+		</list>
+		<list key="issueManagementSystem">
+		</list>
+		<list key="issueManagementUrl">
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.ui.internal.dialogs.MavenRepositorySearchDialog">
+		<item value="480" key="width"/>
+		<item value="400" key="x"/>
+		<item value="74" key="y"/>
+		<item value="489" key="height"/>
+	</section>
+	<section name="wizardPage">
+		<list key="groupId">
+			<item value="spring_restful"/>
+			<item value="spring_mvc5_anno"/>
+			<item value="spring_mvc5_summary"/>
+			<item value="spring_mvc4_share"/>
+			<item value="spring_mvc3_anno"/>
+			<item value="spring_mvc3"/>
+			<item value="spring_mvc2_anno"/>
+			<item value="spring_mvc2"/>
+			<item value="spring_mvc1_maven"/>
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+			<item value="spring_restful"/>
+			<item value="spring_mvc5_anno"/>
+			<item value="spring_mvc5_summary"/>
+			<item value="spring_mvc4_share"/>
+			<item value="spring_mvc3_anno"/>
+			<item value="spring_mvc3"/>
+			<item value="spring_mvc2_anno"/>
+			<item value="spring_mvc2"/>
+			<item value="spring_mvc1_maven"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+</section>

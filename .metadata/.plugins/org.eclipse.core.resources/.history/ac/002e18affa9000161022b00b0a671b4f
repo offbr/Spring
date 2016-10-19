@@ -1,0 +1,163 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script type="text/javascript">
+
+function serach(){
+	if(document.searchFrm.sword.value == ""){
+		document.searchFrm.sword.focus();
+		alert("검색어를 입력하세요!");
+		return;
+	}
+	document.searchFrm.submit();
+}
+
+</script>
+
+<!-- 메인 메뉴바 가운데 정렬 -->
+<style>
+table {
+	font-family: 'Abel', sans-serif;
+}
+.example .pagination>li>a,
+.example .pagination>li>span {
+  	color: black;
+}
+.pagination>li.active>a {
+	border-color: #ddd;
+  	background: #949494;
+  	color: black;
+}
+</style>
+</head>
+
+<div class="container">
+<body>
+
+<%@ include file="../../../header.jsp" %>
+
+<br><br><br><br><br>
+
+<!-- 검색창 -->
+<div class="container text-right">
+
+<form action="boardsearch" name="searchFrm" method="post" class="form-inline">
+	<div class="form-group">
+	<a href="boardlist"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+	&nbsp;&nbsp; 
+	<select name="stype" class="form-control input-sm">
+		<option value="title" selected="selected">글제목</option>
+		<option value="name">글작성자</option>
+	</select>
+	<input type="text" name="sword" placeholder="검색어를 입력하세요" class="form-control input-sm">
+	<a href="javascript:serach();"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>&nbsp;&nbsp;
+	<a href="boardwrite"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>  
+	</div>
+</form>
+
+</div>
+<!-- //검색창 -->
+
+
+<!-- 게시판리스트 -->
+<div class="container">
+<div class="panel panel-default">
+
+<!-- Table -->
+<table class="table" border="1">
+	<tr style="font-weight: bold;">
+		<th style="width: 10%">번호</th><th>제목</th><th style="width: 10%">작성자</th><th style="width: 10%">작성일</th><th style="width: 10%">조회수</th>
+	</tr>
+<c:forEach var="b" items="${list}">
+	<tr style="color: #949494;">
+		<td>${b.num}</td>
+		<c:set var="nested" value=""/>
+		<c:forEach begin="0" end="${b.nested}">
+			<c:set var="nested" value="${nested += '&nbsp&nbsp&nbsp'}"/>
+		</c:forEach>
+		<c:if test="${b.nested > 0}"><td>${nested}<a href="boarddetail?num=${b.num}"><img src="images/icon_re">${b.title}</a></td></c:if>
+		<td>${nested}<a href="boarddetail?num=${b.num}">${b.title}</a></td>
+		<td>${b.name}</td>
+		<td>${fn:substring(b.bdate, 0, 10)}</td>
+		<td>${b.readcnt}</td>
+	</tr>
+</c:forEach>
+  	
+</table>
+ <!-- //table -->
+
+</div>
+</div>
+<!-- //게시판리스트 -->
+
+<div class="container text-center">
+<div class="example">
+<nav>
+	<ul class="pagination pagination-sm">
+	
+		<!-- 첫페이지로 가기 -->
+		 
+		<c:if test="${pageNum <= 1}"> 
+			<li class="disabled"><a href="#">First</a></li>
+		</c:if>		 
+		<c:if test="${pageNum > 1}">
+		<li><a href="boardlist?page=&list=${pageList}">First</a></li>
+		</c:if>
+		<!-- //첫페이지로 가기 -->
+		
+		<!-- 이전 10개 -->	
+		<c:if test="${block <= 1}">
+		<li class="disabled"><a href="#" aria-label="Previous"> <span aria-hidden="true">&laquo;</span></a></li>
+		</c:if>
+		<c:if test="${block > 1}">
+		<li><a href="boardlist?page=${b_start_page - 1}&list=${pageList}" aria-label="Previous"> <span aria-hidden="true">&laquo;</span></a></li>
+		</c:if>
+		<!-- //이전 10개 -->
+		
+		<!-- 페이지 리스트 -->
+		<c:forEach var="i" begin="${b_start_page}" end="${b_end_page}">
+			<c:if test="${pageNum == i}">
+				<li class="active"><a href="#">${i}</a></li>
+			</c:if>
+			
+			<c:if test="${pageNum != i}">
+				<li><a href="boardlist?page=${i}&list=${pageList}">${i}</a></li>
+			</c:if>
+			
+		</c:forEach>
+		<!-- //페이지 리스트 -->
+		
+		<!-- 다음 10개 -->
+		
+		<c:if test="${block >= totalBlock}">
+		<li class="disabled"><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span></a></li>
+		</c:if>
+		<c:if test="${block < totalBlock}">
+		<li><a href="boardlist?page=${b_end_page + 1}&list=${pageList}" aria-label="Next"> <span aria-hidden="true">&raquo;</span></a></li>
+		</c:if>
+		<!-- //다음 10개 -->
+		
+		<!-- 마지막페이지 -->
+		<c:if test="${pageNum >= totalPage}">
+		<li class="disabled"><a href="#">Last</a></li>
+		</c:if>
+		<c:if test="${pageNum < totalPage}">
+		<li><a href="boardlist?page=${totalPage}&list=${pageList}">Last</a></li>
+		</c:if>
+		<!-- //마지막페이지 -->
+	</ul>
+
+</nav>
+</div>
+</div>
+
+
+</body>
+</div>
+</html>

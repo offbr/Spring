@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pro">
+	<select id="sawonList" resultType="dto">
+		select sawon_no, sawon_name, ifnull(buser_name, "무소속")as buser_name, DATE_FORMAT(sawon_ibsail, '%Y')as sawon_ibsail 
+		from sawon left join buser on buser_num=buser_no;
+	</select>
+	
+	<select id="buserList" resultType="dto">
+		select ifnull(buser_name, "무소속")as buser_name, count(sawon_no) as count from sawon 
+		left join buser on buser_num = buser_no group by buser_name order by count desc;
+	</select>
+	
+	<select id="maxPayList" resultType="dto">
+		select sawon_name, ifnull(buser_name, "무소속")as buser_name, sawon_pay from sawon a, 
+		(select buser_num, max(sawon_pay) maxpay from sawon group by buser_num) b left join buser on buser_num=buser_no
+		where a.buser_num = b.buser_num and a.sawon_pay = b.maxpay
+		order by a.buser_num;
+	</select>
+</mapper>

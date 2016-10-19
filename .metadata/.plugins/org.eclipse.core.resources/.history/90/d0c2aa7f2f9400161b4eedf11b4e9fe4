@@ -1,0 +1,5 @@
+package pack.upload;
+
+public class UploadController {
+
+}

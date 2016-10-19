@@ -1,0 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>*Ajax*</h2>
+	고객번호 : <input type="text" size="5" id="gogek_no" name="gogek_no">
+	고객명 : <input type="text" id="gogek_name" name="gogek_name">
+	<input type="button" id="btn" value="확인">
+	<hr>
+<div id="showData"></div>
+<a href="gogek.jsp"><button>고객</button></a>
+</body>
+</html>
+
+
+

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pro">
+	<select id="selectSawonData" resultType="dto">
+		select sawon_no, sawon_name, sawon_jik, buser_name from sawon
+		left join buser on buser_num=buser_no
+	</select>
+	
+	<select id="selectPart" parameterType="string" resultType="dto">
+		select * from mem where num=#{num} 
+	</select>
+	
+</mapper>

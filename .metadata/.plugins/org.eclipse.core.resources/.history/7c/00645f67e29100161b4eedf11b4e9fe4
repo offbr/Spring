@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pro">
+
+	<select id="gogekSearch" parameterType="map" resultType="dto">
+		select gogek_no, gogek_name, sawon_name, sawon_jik, buser_name, buser_Tel from gogek
+		left join sawon on gogek_damsano=sawon_no
+		inner join buser on buser_no = buser_num where gogek_no=#{gogek_no} and gogek_name=#{gogek_name};
+	</select>
+	
+	<select id="buserSearch" parameterType="map" resultType="pack.model.BuserDto">
+		select buser_name, sawon_no, sawon_name, buser_tel, sawon_jik, count(gogek_no)as count from sawon
+		left join gogek on gogek_damsano=sawon_no
+		inner join buser on buser_no = buser_num where buser_name like concat('%', #{buser_name}, '%') group by sawon_no;
+	</select>
+	
+	<select id="gogekList" parameterType="map" resultType="pack.model.BuserDto">
+		select gogek_no, gogek_name, gogek_tel, gogek_jumin from gogek where gogek_damsano = #{sawon_no}
+	</select>
+	
+	<select id="login" parameterType="map" resultType="string">
+		select count(*) from sawon where sawon_no=#{sawon_no} and sawon_name=#{sawon_name}
+	</select>
+</mapper>

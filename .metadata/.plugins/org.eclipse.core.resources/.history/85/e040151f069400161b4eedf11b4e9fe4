@@ -1,0 +1,18 @@
+package pack.model;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class MyModel implements MyModelInter{
+	@Override
+	public String processMsg() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public String businessMsg() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

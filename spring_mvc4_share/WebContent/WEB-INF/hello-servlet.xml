@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	
+	<bean name="/hello.do" class="pack.HelloController">
+		<property name="data" ref="sharedData" />
+	</bean>
+	
+	<!-- ViewResolver 설정 -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/view/" /> <!-- 출력루트는 xml끼리 동일해야 좋다.--> 
+		<property name="suffix" value=".jsp" /> <!-- 접미어 -->
+	</bean>
+	
+</beans>

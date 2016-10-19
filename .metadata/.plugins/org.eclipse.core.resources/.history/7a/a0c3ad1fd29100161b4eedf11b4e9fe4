@@ -1,0 +1,5 @@
+package ack.model;
+
+public class BuserDto {
+
+}

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	<!-- HandlerMapping -->
+	<!-- 방법1 : 요청 URL과 동일한 이름을 Bean과 맵핑(기본) -->
+	<!-- <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" /> -->
+	
+	<!-- Controller -->
+	<!-- 
+	<bean id="/hello.do" name="/abc/world.do, /hi.do" class="pack.controller.HelloController">
+		<property name="hellomodel" ref="helloModel"/>
+	</bean>
+	 
+	<bean id="helloModel" class="pack.model.HelloModel"/>
+	-->
+	
+	<!-- 방법2 : 경로 매핑 방식 (패턴 사용 : *, ?) -->
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="alwaysUseFullPath" value="true" />
+		<property name="mappings">
+			<props> <!-- * 다 / ? 자리수 -->
+				<!-- <prop key="*.do">hi</prop> -->
+				<!-- <prop key="/**/*.do">hi</prop> -->
+				<!-- <prop key="/**/h*.do">hi</prop> -->
+				<prop key="/**/?????.do">hi</prop> 
+			</props>
+		</property>
+	</bean>
+	
+	<bean name="hi" class="pack.controller.HelloController">
+		<property name="hellomodel" ref="helloModel"/>
+	</bean>
+	
+	<bean id="helloModel" class="pack.model.HelloModel"/>
+	
+	<!-- ViewResolver 설정 (어떤 방식이든 공통)-->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/" /> <!-- 출력루트는 xml끼리 동일해야 좋다.--> 
+		<property name="suffix" value=".jsp" /> <!-- 접미어 -->
+	</bean>
+	
+</beans>
+
+
+
+
+
+
+
+
