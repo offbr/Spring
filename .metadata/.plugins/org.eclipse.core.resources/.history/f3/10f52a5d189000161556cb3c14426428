@@ -1,5 +1,0 @@
-package pack.model;
-
-public class BoardDto {
-	private String num, name, pass, mail, title, cont, bip, bdate, readcnt, gnum, onum, nested;
-}

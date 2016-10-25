@@ -1,4 +1,4 @@
 #Tomcat publish data
-#Tue Oct 18 16:30:36 KST 2016
-org.eclipse.jst.jee.server\:/binary\:/Users/All/.m2/repository/org/springframework/spring-web/4.3.3.RELEASE/spring-web-4.3.3.RELEASE.jar=/Applications/spring-tool-suite-3.8.1.RELEASE-e4.6-macosx-cocoa-x86_64/sts-bundle/pivotal-tc-server-developer-3.1.5.RELEASE/base-instance/wtpwebapps/spring_restful/WEB-INF/lib/spring-web-4.3.3.RELEASE.jar
-org.eclipse.jst.jee.server\:spring_restful=/Applications/spring-tool-suite-3.8.1.RELEASE-e4.6-macosx-cocoa-x86_64/sts-bundle/pivotal-tc-server-developer-3.1.5.RELEASE/base-instance/wtpwebapps/spring_restful
+#Mon Oct 24 17:58:19 KST 2016
+org.eclipse.jst.jee.server\:movietest=/Applications/spring-tool-suite-3.8.1.RELEASE-e4.6-macosx-cocoa-x86_64/sts-bundle/pivotal-tc-server-developer-3.1.5.RELEASE/base-instance/wtpwebapps/movietest
+org.eclipse.jst.jee.server\:acornFinal_movie=/Applications/spring-tool-suite-3.8.1.RELEASE-e4.6-macosx-cocoa-x86_64/sts-bundle/pivotal-tc-server-developer-3.1.5.RELEASE/base-instance/wtpwebapps/acornFinal_movie

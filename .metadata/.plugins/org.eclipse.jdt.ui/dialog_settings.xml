@@ -3,7 +3,7 @@
 	<item value="false" key="TypeHierarchyViewPart.qualifiednames"/>
 	<item value="3" key="TypeHierarchyViewPart.orientation"/>
 	<item value="false" key="TypeHierarchyViewPart.linkeditors"/>
-	<item value="/Applications/spring-tool-suite-3.8.1.RELEASE-e4.6-macosx-cocoa-x86_64/sts-bundle/app_mvc용 lib" key="org.eclipse.jdt.ui.lastextjar"/>
+	<item value="/Users/All/Documents/work/driver" key="org.eclipse.jdt.ui.lastextjar"/>
 	<item value="2" key="TypeHierarchyViewPart.hierarchyview"/>
 	<section name="org.eclipse.ltk.ui.refactoring.settings">
 		<item value="false" key="renameSubpackages"/>

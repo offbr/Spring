@@ -1,0 +1,120 @@
+package com.movie.controller;
+
+import java.net.URL;
+import java.net.URLEncoder;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
+import org.codehaus.jackson.JsonNode;
+
+import org.codehaus.jackson.map.ObjectMapper;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.movie.resources.Constant;
+
+//import kr.or.kobis.kobisopenapi.consumer.rest.KobisOpenAPIRestService;
+
+@Controller
+public class MovieController {
+//	@RequestMapping(value="/movieList", method=RequestMethod.POST)
+//	public ModelAndView movieList_kobis(@RequestParam("keyword") String keyword, @RequestParam(value="pageNum", defaultValue="1") String pageNum) throws ParseException{
+//		HashMap<String, Object> movieList_result = null;
+//		List<Object> list = new ArrayList<Object>();
+//		
+//		String thumbnail = "https://www.google.co.kr/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwjylOfr2PDPAhVIGJQKHZCpD3UQjRwIBw&url=http%3A%2F%2Fwww.moaksanjujo.kr%2Fplanweb%2Fmall%2Flist.9is%3Fpage%3D2%26siteUid%3Dff80808135c8798501364c99dbbf08d9%26mallUid%3Dff80808135c87985013658f2aa360a32%26layoutUid%3Dff80808135c8798501364d50602408f9%26searchType%3D%26keyword%3D%26isDisplay%3Dtrue%26categorySearch%3Dfalse%26categoryUid1%3Dff80808135c87985013658f3ba480a33%26categoryUid2%3D%26categoryUid3%3D%26order%3DcompleteCount%26asc%3Dtrue&bvm=bv.136593572,d.cGw&psig=AFQjCNF0sYDS-15iOrx_TeTUG820SMjo1Q&ust=1477303722035573";
+//		
+//		KobisOpenAPIRestService service = new KobisOpenAPIRestService(Constant.KOBIS_KEY);
+//		
+//		HashMap<String, String> map = new HashMap<String, String>();
+//		map.put("movieNm", keyword);
+//		map.put("curPage", pageNum);
+//		map.put("itemPerPage", "12");
+//		
+//		try {
+//			String kobis_List = service.getMovieList(true, map);
+//			System.out.println("kobis_List : " + kobis_List);
+//			//JSON 라이브러리를 통해 Handling
+//			ObjectMapper mapper = new ObjectMapper();
+//			movieList_result = mapper.readValue(kobis_List, HashMap.class);
+//			System.out.println("movieList_result : " + movieList_result);
+//			
+//			String jsonStr = mapper.writeValueAsString(movieList_result.get("movieListResult"));
+//			JsonNode root = mapper.readTree(jsonStr);
+//			// 배열에 있는 값들 가져오기
+//	        if( root.path("movieList").isArray() ){
+//	        	Iterator<JsonNode> it = root.path("movieList").iterator();
+//	        	String url = Constant.DAUM_URL + Constant.DAUM_TYPE + Constant.DAUM_KEY + Constant.DAUM_URL_Q;
+//	            while(it.hasNext()){
+//	            	String m_title = it.next().get("movieNm").getTextValue();
+//	    		//  URL 에서 읽기
+//	            	String sEncoded = URLEncoder.encode(m_title , "UTF-8");
+//	    			HashMap<String, Object> daum_result = mapper.readValue(new URL(url + sEncoded), HashMap.class);
+//	    			
+//	    			String daum_channel = mapper.writeValueAsString(daum_result.get("channel"));
+//	    			JsonNode root2 = mapper.readTree(daum_channel);
+//	    			if( root2.path("item").isArray() ){
+//	    				Iterator<JsonNode> it2 = root2.path("item").getElements();
+//	    				while(it2.hasNext()){
+//	    					Iterator<JsonNode> daum_thumbnail = it2.next().get("thumbnail").getElements();
+//	    					thumbnail = daum_thumbnail.next().get("content").getTextValue();
+//	    				}
+//	    			}
+//	    			HashMap<String, String> movieList_poster = new HashMap<String, String>();
+//	    			System.out.println(thumbnail);
+//	    			movieList_poster.put("poster", thumbnail);
+//	    			list.add(movieList_poster);
+//	            }
+//	        }
+//	        movieList_result.put("search_keyword", keyword);
+//	        movieList_result.put("pageNum", pageNum);
+//	        movieList_result.put("thumbnail", list);
+//	        System.out.println(list);
+//	        System.out.println(movieList_result);
+//		} catch (Exception e) {
+//			System.out.println("Error : " + e);
+//		}
+//		
+//		ModelAndView view = new ModelAndView();
+//		return new ModelAndView("movieList", "movie_info", movieList_result);
+//	}
+	
+	@RequestMapping(value="/movieList", method=RequestMethod.POST)/*method=RequestMethod.POST*/
+	public ModelAndView movieList_daum(@RequestParam("keyword") String keyword, @RequestParam(value="pageNum", defaultValue="1") String pageNum, HttpSession session) throws ParseException{
+		HashMap<String, Object> daum_result = null;
+		List<Object> list = new ArrayList<Object>();
+		int totalCnt = 0;
+		
+		//JSON 라이브러리를 통해 Handling
+		ObjectMapper mapper = new ObjectMapper();
+		
+    	String url = Constant.DAUM_URL + Constant.DAUM_TYPE + Constant.DAUM_KEY + Constant.DAUM_URL_Q;
+    	try {
+    		//  URL 에서 읽기
+    		String sEncoded = URLEncoder.encode(keyword , "UTF-8");
+    		daum_result = mapper.readValue(new URL(url + sEncoded + Constant.DAUM_PAGE + pageNum + Constant.DAUM_CNT), HashMap.class);
+    		daum_result.put("pageNum", pageNum);
+    		
+//    		String jsonStr = mapper.writeValueAsString(daum_result.get("channel"));
+//    		JsonNode root = mapper.readTree(jsonStr);
+//    		totalCnt = root.get("totalCount").asInt();
+		} catch (Exception e) {
+			System.out.println("Error : " + e);
+		}
+//    	if (totalCnt == 0) {
+//    		return new ModelAndView("nothing");
+//		}
+    	session.setAttribute("movie_detail", daum_result);
+    	return new ModelAndView("movieList", "movie_info", daum_result);
+	}	
+
+}
+

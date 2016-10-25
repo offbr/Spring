@@ -1,8 +1,0 @@
-package pack.model;
-
-import java.util.List;
-
-public interface DaoInter {
-	List<GogekDto> GogekList();
-	List<GogekDto> GogekSearch(String gogek_no, String gogek_name);
-}

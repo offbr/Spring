@@ -1,8 +1,0 @@
-package pack.aspect;
-
-import org.springframework.stereotype.Component;
-
-@Component
-public class LoginClass {
-	
-}

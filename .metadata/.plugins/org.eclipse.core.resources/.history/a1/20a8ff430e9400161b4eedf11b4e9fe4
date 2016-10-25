@@ -1,5 +1,0 @@
-package pack.model;
-
-public class SawonDto {
-	private String sawon_no, sawon_name, sawon_jik, buser_name;
-}
