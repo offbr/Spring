@@ -5,7 +5,20 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2016-10-26T21:10:43Z</updated>
+  <updated>2016-10-27T02:57:00Z</updated>
+  <entry>
+    <title>Spring Tips: Circuit Breakers</title>
+    <link rel="alternate" href="https://spring.io/blog/2016/10/27/spring-tips-circuit-breakers" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2016-10-27:2670</id>
+    <updated>2016-10-27T02:57:00Z</updated>
+    <content type="html">&lt;p&gt;Speaker: &lt;a href="https://www.twitter.com/starbuxman"&gt;Josh Long&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Hi Spring fans! In this tip, we&amp;rsquo;ll quickly look at the Netflix Hystrix circuit breaker in Spring Cloud and the circuit breaker in Spring Retry &lt;/p&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/Kc7dDxn9cUg" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</content>
+  </entry>
   <entry>
     <title>Spring Cloud Pipelines 1.0.0.M2 Released</title>
     <link rel="alternate" href="https://spring.io/blog/2016/10/26/spring-cloud-pipelines-1-0-0-m2-released" />
@@ -948,17 +961,5 @@ public class ExampleApplication implements CommandLineRunner {&#xD;
 &lt;div class="paragraph"&gt;
 &lt;p&gt;As part of these releases, Spring Cloud Deployer for Cloud Foundry 1.0.1.GA and 1.1.0.M1 were also made available and can be consumed by any project that needs to leverage deployment capability to Cloud Foundry using the Spring Cloud Deployer abstraction.&lt;/p&gt;
 &lt;/div&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Tips: Functional Reactive Endpoints with Spring Framework 5.0</title>
-    <link rel="alternate" href="https://spring.io/blog/2016/10/05/spring-tips-functional-reactive-endpoints-with-spring-framework-5-0" />
-    <category term="news" label="News and Events" />
-    <author>
-      <name>Pieter Humphrey</name>
-    </author>
-    <id>tag:spring.io,2016-10-05:2647</id>
-    <updated>2016-10-05T13:25:00Z</updated>
-    <content type="html">&lt;p&gt;Speaker: Josh Long&lt;br/&gt;&lt;a href="https://www.twitter.com/starbuxman"&gt;https://www.twitter.com/starbuxman&lt;/a&gt;&lt;/p&gt;
-&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/JjrAmhlTjug" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</content>
   </entry>
 </feed>
