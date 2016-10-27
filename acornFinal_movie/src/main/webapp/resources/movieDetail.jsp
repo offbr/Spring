@@ -5,61 +5,69 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title></title>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+          
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 </head>
+<div class="row">
 <body>
 
 <!-- 영화 리스트 -->
-<div class="row"></div>
-<c:set var="c" value="0"/>
 
+<div class="row">
 <c:if test="${not empty movie_detail.channel.item }">
 	<c:forEach var="l" items="${movie_detail.channel.item }">
-		<c:set var="c" value="${c+1 }"/>
-		<c:if test="${c == 1 }">
-			<div class="row">
-		</c:if>						
-		<div class="col m3 l3">
-			<div class="card">
-			    <div class="card-image waves-effect waves-block waves-light">
-			    	<c:forEach var="p" items="${l.thumbnail }">
+	
+		<c:forEach var="t" items="${l.title }">
+			<c:set var="title" value="${t.content}" />
+		</c:forEach>
+		<c:forEach var="t" items="${l.eng_title }">
+			<c:set var="eng_title" value="${t.content}" />
+		</c:forEach>
+		
+		<c:if test="${param.dtitle == title and param.eng_title == eng_title}">
+		<div class="row">
+			<div class="col s12 m5 l5">
+			    <c:forEach var="p" items="${l.thumbnail }">
 			    		<c:set var="poster" value="${p.content}" />
-			    	</c:forEach>
-			    	<img class="activator" src="${poster}">	    		
-			    </div>
-			    <div class="card-content">
-			    	<c:forEach var="t" items="${l.title }">
-				        <c:set var="title" value="${t.content}" />
-			    	</c:forEach>
-	   				<c:set var="titlecut" value="${fn:substring(title, 0, 12) }" />
-			      	<p>
-			      		<!-- Modal Trigger -->
-			      		<a href="javascript:mymodal('${title}')"> 
-			      			${titlecut }
-			      			<c:if test="${fn:length(title) > 12 }">...</c:if>
-			      		</a>
-			      		<!-- <i class="card-title activator material-icons right">more_vert</i> -->
-			      	</p>
-			    </div>
-			    <div class="card-reveal">
-					<span class="card-title grey-text text-darken-4">${title }<i class="material-icons right">close</i></span>
-					<p>
-						장　 　르 ㅣ <c:forEach var="g" items="${l.genre }">${g.content} </c:forEach><br/>
-				    	감　 　독 ㅣ <c:forEach var="d" items="${l.director }">${d.content} </c:forEach><br/>
-				    	출연배우 ㅣ <c:forEach var="a" items="${l.actor }">${a.content} </c:forEach><br/>
-				    	제작년도 ㅣ <c:forEach var="y" items="${l.year }">${y.content} </c:forEach><br/>
-				    	제작국가 ㅣ <c:forEach var="n" items="${l.nation }">${n.content} </c:forEach><br/>
-				    	줄 거 리 ㅣ	 <c:forEach var="s" items="${l.story }">${s.content} </c:forEach><br/>				    						    						    						    	
-					</p>
-			    </div>
-			</div>
-        </div>
-		<c:if test="${c == 4 }">
-			</div>
-			<c:set var="c" value="0"/>
-		</c:if>	        			
+			    </c:forEach>
+			   	<img src="${poster}">	
+			</div>	    
+			
+			<div class="col s12 m7 l7">
+				<h3>${title }</h3>
+				<p>
+					장　 르 ㅣ <c:forEach var="g" items="${l.genre }">${g.content} </c:forEach><br/>
+			    	감　 독 ㅣ <c:forEach var="d" items="${l.director }">${d.content} </c:forEach><br/>
+			    	출연배우 ㅣ <c:forEach var="a" items="${l.actor }">${a.content} </c:forEach><br/>
+			    	제작년도 ㅣ <c:forEach var="y" items="${l.year }">${y.content} </c:forEach><br/>
+			    	제작국가 ㅣ <c:forEach var="n" items="${l.nation }">${n.content} </c:forEach><br/>
+			    	<br>
+			    	줄 거 리 ㅣ <c:forEach var="s" items="${l.story }">${s.content}... </c:forEach><br/>
+				</p>
+		    </div>	
+	  	</div>	
+        </c:if>
+        
 	</c:forEach>
-   </c:if>
+</c:if>
+</div>
+   <!--Import jQuery before materialize.js-->
+   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+   <!-- Compiled and minified JavaScript -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
 </body>
+</div>
 </html>
+
+
+
+
+ 

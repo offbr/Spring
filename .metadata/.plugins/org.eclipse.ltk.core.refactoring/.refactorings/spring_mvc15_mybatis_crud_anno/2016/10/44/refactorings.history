@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 2 elements to &apos;acornFinal_movie/src/main/java/com.movie.resources&apos;&#x0A;- Original project: &apos;spring_mvc15_mybatis_crud_anno&apos;&#x0A;- Destination element: &apos;acornFinal_movie/src/main/java/com.movie.resources&apos;&#x0A;- Original elements:&#x0A;     pack.resource.MemAnnoInter.java&#x0A;     db.properties" description="Copy elements" destination="=acornFinal_movie/src\/main\/java&lt;com.movie.resources" element1="src/main/java/pack/resource/db.properties" element2="/src\/main\/java&lt;pack.resource{MemAnnoInter.java" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1477461730668" units="1" version="1.0"/>
+</session>

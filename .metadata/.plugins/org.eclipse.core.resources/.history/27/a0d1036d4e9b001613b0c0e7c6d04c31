@@ -1,0 +1,80 @@
+package com.movie.model;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Repository;
+
+import com.movie.resources.MovieAnnoInter;
+import com.movie.resources.MovieAnnomovieAnnoInter;
+
+@Repository
+public class BoardDaoImpl implements BoardDaoInter{
+	
+	@Autowired
+	@Qualifier("movieAnnomovieAnnoInter")
+	private MovieAnnoInter movieAnnoInter;
+	
+	@Override
+	public List<BoardDto> selectDataAll(Map<String, Integer> map) {
+		return movieAnnoInter.selectDataAll(map);
+	}
+	
+	@Override
+	public List<BoardDto> selectSearchData(Map<String, String> map) {
+		return movieAnnoInter.selectSearchData(map);
+	}
+	
+	@Override
+	public BoardDto selectPart(String b_no) {
+		return movieAnnoInter.selectPart(b_no);
+	}
+	
+	@Override
+	public int b_noMax() {
+		return movieAnnoInter.b_noMax();
+	}
+	
+	@Override
+	public int totalCount() {
+		return movieAnnoInter.totalCount();
+	}
+	
+	@Override
+	public int checkPass(BoardBean bean) {
+		return movieAnnoInter.checkPass(bean);
+	}
+	
+	@Override
+	public boolean insertData(BoardBean bean) {
+		return movieAnnoInter.insertData(bean);
+	}
+	
+	@Override
+	public boolean updateData(BoardBean bean) {
+		return movieAnnoInter.updateData(bean);
+	}
+	
+	@Override
+	public boolean deleteData(String b_no) {
+		return movieAnnoInter.deleteData(b_no);
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

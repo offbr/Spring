@@ -1,0 +1,25 @@
+@CHARSET "UTF-8";
+
+.main_icon_position, .paging, .result_none{
+	text-align: center;
+}
+.searchBar{
+	background-color: #607d8b;
+}
+#img_icon{
+	color: #607d8b;
+}
+#search_keyword:hover{
+	cursor: pointer;
+}
+.autocomplete{
+	z-index: 998;
+}
+.topbar{
+	background-color: white;
+}
+.modal{ 
+	width: 90% !important ;
+	height: 80% !important ; 
+	max-height: 100% !important; 
+} 

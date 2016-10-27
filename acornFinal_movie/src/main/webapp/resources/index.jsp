@@ -14,25 +14,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<title>[영화검색]goodbye acorn - :)</title>
 </head>
-<div class="row">
+<style>
+html,body {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 1000px;
+  width: 100%;
+}
+</style>
 <body>
 	<!-- 재생 -->
 	<div style="text-align: center;">
-	<embed width="320" height="25" src="http://www.youtube.com/v/mLtSzudHz-U?list=RDEMvSWR6x0oOZr3rUvv_2v5Eg?version=2&autoplay=1&loop=1" type="application/x-shockwave-flash" wmode="opaque"></embed>
+	<embed width="320" height="25" src="http://www.youtube.com/v/R3WwcsjWPIQ?version=2&autoplay=1&loop=1" type="application/x-shockwave-flash" wmode="opaque"></embed>
 	</div>
 	<!-- //재생 -->
 	
-	<div class="row"></div>
+	<div>&nbsp;</div>
 	<div class="row">
 		<div class="col s12 main_icon_position">
 			<a href="index.jsp"><i class="large material-icons" id="img_icon">movie</i></a>	
 		</div>
 	</div>
+	
 	<div class="row">
-		<h5 class="center-align">그 영화 뭐더라</h5>
+		<h5 class="center-align">영화 보기 전에, 예매 하기 전에</h5>
 	</div>
-	<div class="row"></div>	
-	<div class="row"></div>
+	
+	<div>&nbsp;</div> 	
+	<div>&nbsp;</div> 
+	 
+	<div class="container">
 	<div class="row">
 		<div class="col s12 m1 l2"></div>
 		<div class="col s12 m10 l8">
@@ -48,10 +60,12 @@
 			  </div>
 			</nav>
 		</div>
+		</div>
 		<div class="col s12 m1 l2"></div>
 	</div>
 	
-<%@include file="/WEB-INF/views/footer.jsp" %>
+	<span style="padding-left: 500px"><a href="../boardList">QnA</a></span>
+	
+	<%@include file="/WEB-INF/views/footer.jsp" %>
 </body>
-</div>
 </html>

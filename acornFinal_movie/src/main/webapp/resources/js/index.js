@@ -51,7 +51,8 @@ function page_move(s_page, s_name){
 }
 
 //movielist modal
-function mymodal(title){
+function mymodal(title, eng_title){
+	$('#iframe').attr('src', 'resources/movieDetail.jsp?dtitle=' + title + '&eng_title=' + eng_title);
 	$('#modal_title').text(title);
 	$('#modal1').openModal();
 }

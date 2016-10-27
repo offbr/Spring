@@ -1,0 +1,63 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+	<link rel="stylesheet" href="../resources/css/index.css">
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>[영화검색]goodbye acorn - :)</title>
+</head>
+
+<body style="height: 100%">
+	<!-- 재생 -->
+	<div style="text-align: center;">
+	<embed width="320" height="25" src="http://www.youtube.com/v/mLtSzudHz-U?list=RDEMvSWR6x0oOZr3rUvv_2v5Eg?version=2&autoplay=1&loop=1" type="application/x-shockwave-flash" wmode="opaque"></embed>
+	</div>
+	<!-- //재생 -->
+	
+	<div>&nbsp;</div>
+	<div class="row">
+		<div class="col s12 main_icon_position">
+			<a href="index.jsp"><i class="large material-icons" id="img_icon">movie</i></a>	
+		</div>
+	</div>
+	
+	<div class="row">
+		<h5 class="center-align">영화 보기 전에, 예매 하기 전에</h5>
+	</div>
+	
+	<div>&nbsp;</div> 	
+	<div>&nbsp;</div> 
+	 
+	<div class="row">
+		<div class="col s12 m1 l2"></div>
+		<div class="col s12 m10 l8">
+			<nav class="searchBar">
+			  <div class="nav-wrapper">
+			    <form id="form-action" method="post" action="../movieList"> <!-- method="post" -->
+			      <div class="input-field">
+			        <input type="search" name="keyword" id="search" class="autocomplete" placeholder="영화 제목을 검색하세요" required>
+			        <label for="search"><i class="material-icons" id="search_keyword">search</i></label>
+			        <i class="material-icons" id="search_clear">close</i>
+			      </div>
+			    </form>
+			  </div>
+			</nav>
+		</div>
+		<div class="col s12 m1 l2"></div>
+	</div>
+	
+	<%@include file="/WEB-INF/views/footer.jsp" %>
+	
+          <div style="padding-bottom: 10px">123</div>
+		
+</body>
+
+</html>

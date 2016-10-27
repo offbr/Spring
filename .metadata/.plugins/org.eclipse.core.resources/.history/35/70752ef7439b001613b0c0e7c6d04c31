@@ -1,0 +1,36 @@
+package com.movie.resources;
+
+import java.util.List;
+import java.util.Map;
+
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
+
+import com.movie.model.BoardBean;
+import com.movie.model.BoardDto;
+
+public interface movieAnnoInter {
+	
+	@Select("select * from board")
+	List<BoardDto> selectDataAll();
+
+	@Select("select * from board order by b_no desc limit #{pageChoice}, ${pageList}")
+	List<BoardDto> selectDataAll(Map<String, Integer> map);
+	
+	@Select("select * from board where b_no=#{b_no}")
+	BoardDto selectPart(String b_no);
+	
+	@Select("select  from board where b_no=#{b_no}")
+	BoardDto maxb_no(String b_no);
+	
+	@Insert("insert into board (b_no, b_name, b_pass, b_email, b_tel, b_title, b_content, b_date, b_state) valuse (?, ?, ?, ?, ?, ?, ?, ?, ?)")
+	boolean insertData(BoardBean bean);
+	
+	@Update("update board set b_name=#{b_name}, b_pass=#{b_pass}, b_email=#{b_email}, b_tel=#{b_tel}, b_title=#{b_title}, b_content=#{b_content} where b_no=#{b_no}")
+	boolean updateData(BoardBean bean);
+	
+	@Delete("delete from board where b_no=#{b_no}")
+	boolean deleteData(String b_no);
+}

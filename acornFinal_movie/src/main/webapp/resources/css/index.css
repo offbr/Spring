@@ -4,10 +4,10 @@
 	text-align: center;
 }
 .searchBar{
-	background-color: #607d8b;
+	background-color: #00bfa5;
 }
 #img_icon{
-	color: #607d8b;
+	color: #00bfa5;
 }
 #search_keyword:hover{
 	cursor: pointer;
@@ -23,3 +23,38 @@
 	height: 80% !important ; 
 	max-height: 100% !important; 
 } 
+
+
+
+.pagination li.active a {
+	background-color: #00bfa5;
+}
+
+a, h5{
+	color: #00bfa5;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    white;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    white;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    white;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    white;
+}
+
+img{
+	position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-width: 100%;
+    height: auto;
+}

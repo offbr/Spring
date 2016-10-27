@@ -1,0 +1,12 @@
+package com.movie.model;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.movie.resources.movieAnnoInter;
+
+@Repository
+public class BoardDaoImpl implements BoardDaoInter{
+	@Autowired
+	private movieAnnoInter inter
+}

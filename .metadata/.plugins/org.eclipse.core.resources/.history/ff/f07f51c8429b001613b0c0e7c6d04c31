@@ -1,0 +1,5 @@
+package com.movie.model;
+
+public class BoardDto {
+	private String b_no, b_name, b_pass, b_email, b_tel, b_title, b_content, b_date, b_state;
+}

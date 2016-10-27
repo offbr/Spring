@@ -1,5 +1,0 @@
-package pack.model;
-
-public class MemberDto {
-	private String no, name, age, tel;
-}

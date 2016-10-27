@@ -1,0 +1,85 @@
+package com.movie.model;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.movie.resources.movieAnnoInter;
+
+@Repository
+public class BoardDaoImpl implements BoardDaoInter{
+	@Autowired
+	private movieAnnoInter inter;
+	
+	@Override
+	public List<BoardDto> selectDataAll(Map<String, Integer> map) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public List<BoardDto> selectSearchData(BoardBean bean) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public BoardDto selectPart(String b_no) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public int b_noMax() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	@Override
+	public int totalCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	@Override
+	public int checkPass(BoardBean bean) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	@Override
+	public boolean insertData(BoardBean bean) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	@Override
+	public boolean updateData(BoardBean bean) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	@Override
+	public boolean deleteData(String b_no) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

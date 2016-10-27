@@ -1,0 +1,16 @@
+package com.movie.model;
+
+import java.util.List;
+import java.util.Map;
+
+public interface BoardDaoInter {
+	List<BoardDto> selectDataAll(Map<String, Integer> map);
+	BoardDto selectPart(String num);		
+	List<BoardDto> selectSearchData(BoardBean bean); // 검색
+	int totalCount(); //전체레코드 수		
+	int b_noMax(); //글 맥스값 
+	int checkPass(BoardBean bean); //수정 및 삭제시 패스 확인
+	boolean insertData(BoardBean bean);
+	boolean updateData(BoardBean bean);
+	boolean deleteData(String b_no);
+}
